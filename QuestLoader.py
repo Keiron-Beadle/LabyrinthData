@@ -13,14 +13,10 @@ locationMap={
 itemMap={
     "boarmeat":1
 }
-npcMap={
-    "borris":1,
-    "chalice":2,
-    "moo":3
-}
 giverQuestIdMap={
 }
-for npc in npcMap.keys():
+givers=["borris","chalice"]
+for npc in givers:
     giverQuestIdMap[npc] = -1
 #end defines
 
@@ -28,7 +24,7 @@ for npc in npcMap.keys():
 class Slay:
     def __init__(self, name,giver : str,description,monster : str,count, minLevel, requires):
         self.Name = name
-        self.GiverId = npcMap[giver.lower()]
+        self.Giver = giver.lower()
         self.GiverQuestId = giverQuestIdMap[giver]
         self.Description = description
         self.MonsterId = monsterMap[monster.lower()]
@@ -39,7 +35,7 @@ class Slay:
 class Provide:
     def __init__(self, name, giver : str, description, item : str, count, minLevel, requires):
         self.Name = name
-        self.GiverId = npcMap[giver.lower()]
+        self.Giver = giver.lower()
         self.GiverQuestId = giverQuestIdMap[giver]
         self.Description = description
         self.ItemId = itemMap[item.lower()]
@@ -50,7 +46,7 @@ class Provide:
 class Travel:
     def __init__(self, name, giver : str, description, location : str, minLevel, requires):
         self.Name = name
-        self.GiverId = npcMap[giver.lower()]
+        self.Giver = giver.lower()
         self.GiverQuestId = giverQuestIdMap[giver]
         self.Description = description
         self.LocationId = locationMap[location.lower()]
@@ -86,11 +82,11 @@ with open('QuestLoader.verse','w') as f:
     for quest in quests:
         f.write("set Quests += array{")
         if isinstance(quest, Slay):
-            f.write(f'''MakeBKSlayQuest("{quest.Name}",{quest.GiverId},{quest.GiverQuestId},"{quest.Description}",{quest.MonsterId},{quest.Count},{quest.MinLevel},"{quest.Requires}")''')
+            f.write(f'''MakeBKSlayQuest("{quest.Name}","{quest.Giver}",{quest.GiverQuestId},"{quest.Description}",{quest.MonsterId},{quest.Count},{quest.MinLevel},"{quest.Requires}")''')
         elif isinstance(quest, Provide):
-            f.write(f'''MakeBKProvideQuest("{quest.Name}",{quest.GiverId},{quest.GiverQuestId},"{quest.Description}",{quest.ItemId},{quest.Count},{quest.MinLevel},"{quest.Requires}")''')
+            f.write(f'''MakeBKProvideQuest("{quest.Name}","{quest.Giver}",{quest.GiverQuestId},"{quest.Description}",{quest.ItemId},{quest.Count},{quest.MinLevel},"{quest.Requires}")''')
         elif isinstance(quest, Travel):
-            f.write(f'''MakeBKTravelQuest("{quest.Name}",{quest.GiverId},{quest.GiverQuestId},"{quest.Description}",{quest.LocationId},{quest.MinLevel},"{quest.Requires}")''')
+            f.write(f'''MakeBKTravelQuest("{quest.Name}","{quest.Giver}",{quest.GiverQuestId},"{quest.Description}",{quest.LocationId},{quest.MinLevel},"{quest.Requires}")''')
         f.write("};")
     f.write('}')
     f.write('}')
