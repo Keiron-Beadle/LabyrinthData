@@ -21,7 +21,6 @@
         {
             "Type":"Provide",
             "Name":"Boar Game",
-            "Giver":"BOrris",
             "Description":"Give me 10 boar meat!",
             "Item":"boarmeat",
             "Count":10,
