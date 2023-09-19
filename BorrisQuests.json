@@ -1,0 +1,32 @@
+{
+    "Quests":[
+        {
+            "Type":"Slay",
+            "Name":"Boar I",
+            "Description":"Hunt 5 boars!",
+            "Monster":"boar",
+            "Count":5,
+            "MinLevel":1,
+            "Requires":""
+        },
+        {
+            "Type":"Slay",
+            "Name":"Boar II",
+            "Description":"Hunt 10 boars!",
+            "Monster":"boar",
+            "Count":10,
+            "MinLevel":1,
+            "Requires":""
+        },
+        {
+            "Type":"Provide",
+            "Name":"Boar Game",
+            "Giver":"BOrris",
+            "Description":"Give me 10 boar meat!",
+            "Item":"boarmeat",
+            "Count":10,
+            "MinLevel":1,
+            "Requires":""
+        }
+    ]
+}

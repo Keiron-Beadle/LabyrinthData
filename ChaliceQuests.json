@@ -1,0 +1,13 @@
+{
+    "Quests":[
+        {
+            "Type":"Travel",
+            "Name":"Great Rock",
+            "Giver":"Chalice",
+            "Description":"Visit the great rock!",
+            "Location":"greatRock",
+            "MinLevel":2,
+            "Requires":"Boar II"
+        }
+    ]
+}
