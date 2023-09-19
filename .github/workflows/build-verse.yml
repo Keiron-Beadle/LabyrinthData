@@ -17,13 +17,13 @@ jobs:
     - name: execute py
       run: python QuestLoader.py
     
-    -name: commit files
+    - name: commit files
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "Github Action"
         git add -A
         git diff-index --quiet HEAD || (git commit -a -m "updated logs" --allow-empty)
-    
+            
     - name: push changes
       uses: ad-m/github-push-action@v0.6.0
       with:
