@@ -55,7 +55,7 @@ class Travel:
 #end quest classes
 
 # begin fill quests
-jsonFiles = glob.glob("*.json")
+jsonFiles = glob.glob("*Quests.json")
 for file in jsonFiles:
     fr = open(file, 'r')
     giver = file.removesuffix("Quests.json").lower()
