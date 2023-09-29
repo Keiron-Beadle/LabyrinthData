@@ -22,7 +22,7 @@ for file in jsonFiles:
 # begin create verse
 
 with open('ItemLoader.verse','w') as f:
-    f.write("item_loader := class{var Items<public> : []item = array{};GetItems<public>():[]item={return Items};Init<public>():void={")
+    f.write("item_loader<public> := class{var Items<public> : []item = array{};GetItems<public>():[]item={return Items};Init<public>():void={")
     for item in items:
         pass
     f.write('}')

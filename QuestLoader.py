@@ -78,7 +78,7 @@ for file in jsonFiles:
 # begin create verse
 
 with open('QuestLoader.verse','w') as f:
-    f.write("quest_loader := class{var Quests<public> : []quest = array{};GetQuests<public>():[]quest={return Quests};Init<public>():void={")
+    f.write("quest_loader<public> := class{var Quests<public> : []quest = array{};GetQuests<public>():[]quest={return Quests};Init<public>():void={")
     for quest in quests:
         f.write("set Quests += array{")
         if isinstance(quest, Slay):
