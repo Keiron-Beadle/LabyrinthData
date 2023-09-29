@@ -1,1 +1,1 @@
-item_loader := class{var Items<public> : []item = array{};GetItems<public>():[]item={return Items};Init<public>():void={}}
+item_loader<public> := class{var Items<public> : []item = array{};GetItems<public>():[]item={return Items};Init<public>():void={}}
